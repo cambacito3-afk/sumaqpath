@@ -1,76 +1,226 @@
-root {
-    --muted: rgba(233, 242, 245, 0.65);
-    --soft: #e9f2f5;
-    --gold: #C9A84C;
+:root {
+    --bg-1: #0D0D0D;
+    --bg-2: #1A1A1A;
+    --bg-3: #222222;
+    --accent: #C9A84C;
+    --soft: #F5F0E8;
+    --text: #F5F0E8;
+    --muted: rgba(245, 240, 232, 0.6);
 }
 
-/* ── RESET ── */
-*, *::before, *::after {
+* {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background: #1a1a1a;
-    color: var(--soft);
-    font-family: Georgia, serif;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg-1);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* ── NAV PRINCIPAL ── */
-header nav {
+/* ── HEADER & NAV ── */
+header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(13, 13, 13, 0.92);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    z-index: 10;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 14px 20px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(6px);
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.brand {
-    font-size: 1.3rem;
+nav .brand {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    font-size: 1.8rem;
+    color: var(--accent);
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--soft);
+    background: rgba(240, 165, 0, 0.12);
+    transform: translateY(-1px);
 }
 
 /* ── SECTION NAV ── */
-nav.section-nav {
+.section-nav {
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 10px 16px;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    height: 40px;
+    background: #1A1A1A;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
 
-nav.section-nav a {
-    color: var(--muted);
+.section-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.section-nav a {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A8A8A;
     text-decoration: none;
-    font-size: 0.85rem;
-    padding: 5px 10px;
-    border-radius: 6px;
-    transition: color 0.2s, background 0.2s;
+    padding: 0 14px 0 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #2a2a2a;
+    margin-right: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
 }
 
-nav.section-nav a:hover,
-nav.section-nav a.active {
-    color: var(--gold);
-    background: rgba(201, 168, 76, 0.12);
+.section-nav a:last-child {
+    border-right: none;
 }
 
-/* ── SECTIONS ── */
-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
+.section-nav a:hover,
+.section-nav a.active {
+    color: var(--accent);
 }
 
-section h2 {
-    font-size: 1.7rem;
-    margin: 0 0 12px;
+/* ── HERO ── */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero.mural {
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    width: 100%;
+    display: grid;
+    align-items: end;
     color: var(--soft);
 }
 
+.hero.mural > div {
+    position: relative;
+    z-index: 1;
+    padding: 60px 24px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.hero.mural > div.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    color: #fff;
+    line-height: 1.1;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    text-align: left;
+}
+
+.hero p {
+    max-width: 420px;
+    margin: 0 0 18px;
+    font-size: 1.05rem;
+    color: var(--muted);
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    text-align: left;
+}
+
+/* ── BUTTONS ── */
+.cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(240, 165, 0, 0.45);
+    text-decoration: none;
+    color: var(--soft);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border-color: rgba(240, 165, 0, 0.7);
+}
+
+/* ── MAIN SECTIONS ── */
+main {
+    flex: 1;
+}
+
+section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+}
+
+section h2 {
+    margin: 0 0 6px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: var(--soft);
+    letter-spacing: 0.4px;
+}
+
+section h2 em {
+    font-style: italic;
+    color: var(--accent);
+}
+
 .section-label {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin: 0 0 6px !important;
+    color: var(--accent);
+    margin: 0 0 6px;
 }
 
 section p {
@@ -82,67 +232,58 @@ section p {
 
 section p.es {
     font-style: italic;
-    color: rgba(233, 242, 245, 0.5);
+    color: rgba(245, 240, 232, 0.5);
     font-size: 0.92rem;
     margin-top: -10px;
 }
 
-/* ── HERO ── */
-.hero.mural {
-    position: relative;
-    min-height: 420px;
+/* ── HISTORY TOGGLE ── */
+.history-toggle {
+    margin-bottom: 20px;
+}
+
+.history-toggle summary {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--accent);
+    list-style: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 0;
-    max-width: 100%;
+    gap: 6px;
+    user-select: none;
 }
 
-.hero.mural video {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
+.history-toggle summary::before {
+    content: '▶';
+    font-size: 0.6rem;
+    transition: transform 0.2s;
 }
 
-.hero.mural > div {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+.history-toggle[open] summary::before {
+    transform: rotate(90deg);
 }
 
-.hero.mural > div.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.hero h1 {
-    font-size: clamp(1.6rem, 5vw, 3rem);
-    color: #fff;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
-    margin: 0;
+.history-content {
+    max-height: 200px;
+    overflow-y: auto;
+    line-height: 1.7;
+    padding-right: 8px;
+    color: var(--muted);
+    margin-top: 10px;
 }
 
 /* ── CARDS ── */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
 }
 
 .card {
     padding: 18px;
     border-radius: 14px;
-    background: #eeeded;
-    color: #222;
-    border: 1px solid #fdfdfd;
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease, border-color 0.2s ease;
     overflow: hidden;
@@ -150,13 +291,13 @@ section p.es {
 
 .card:hover {
     transform: translateY(-3px);
-    border-color: var(--gold);
+    border-color: var(--accent);
 }
 
 .card h3 {
     margin: 0 0 8px;
     font-size: 1.05rem;
-    color: #1a1a1a;
+    color: var(--soft);
 }
 
 .card span {
@@ -166,13 +307,13 @@ section p.es {
     border-radius: 999px;
     font-size: 0.8rem;
     background: rgba(201, 168, 76, 0.2);
-    color: #5a4010;
+    color: var(--accent);
 }
 
 .card ul {
     margin: 0;
     padding-left: 18px;
-    color: #444;
+    color: var(--muted);
     line-height: 1.6;
     font-size: 0.9rem;
 }
@@ -187,42 +328,7 @@ section p.es {
     margin: 10px 0;
 }
 
-/* ── HISTORY TOGGLE ── */
-.history-toggle {
-    margin-bottom: 20px;
-}
-
-.history-toggle summary {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    color: var(--gold);
-    margin-bottom: 10px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.history-toggle summary::before {
-    content: '▶';
-    font-size: 0.7rem;
-    transition: transform 0.2s;
-}
-
-.history-toggle[open] summary::before {
-    transform: rotate(90deg);
-}
-
-.history-content {
-    max-height: 200px;
-    overflow-y: auto;
-    line-height: 1.7;
-    padding-right: 8px;
-    color: var(--muted);
-}
-
-/* ── IMAGE ROWS (Destinations, Cuisine, Transport) ── */
+/* ── IMAGE ROW ── */
 .image-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -244,7 +350,7 @@ section p.es {
     margin: 10px auto;
     border: none;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 /* ── FOOTER ── */
@@ -260,28 +366,25 @@ footer {
 /* ── RESPONSIVE MÓVIL ── */
 @media (max-width: 760px) {
 
-    /* Hero: imagen de fondo estática en vez de video problemático */
+    nav .brand {
+        font-size: 1.3rem;
+    }
+
+    nav {
+        padding: 8px 12px;
+        gap: 4px;
+    }
+
     .hero.mural {
-        min-height: 260px;
-        max-height: 360px;
+        min-height: 280px;
+        max-height: 420px;
     }
 
     .hero h1 {
         font-size: 1.5rem;
+        text-align: center;
     }
 
-    /* Nav de secciones */
-    nav.section-nav {
-        gap: 4px;
-        padding: 8px 10px;
-    }
-
-    nav.section-nav a {
-        font-size: 0.72rem;
-        padding: 4px 7px;
-    }
-
-    /* Sections con padding lateral */
     section {
         padding: 28px 16px;
     }
@@ -295,23 +398,19 @@ footer {
         text-align: center;
     }
 
-    /* Cards: una columna en móvil */
+    .section-label {
+        text-align: center;
+    }
+
     .card-grid {
-        display: grid;
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
     }
 
     .card {
-        width: 100%;
         height: auto;
     }
 
-    .card img {
-        height: 200px;
-    }
-
-    /* Image rows: una columna en móvil */
     .image-row {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -321,13 +420,11 @@ footer {
         height: 200px;
     }
 
-    /* History toggle más cómodo */
     .history-content {
         max-height: 160px;
         font-size: 0.9rem;
     }
 
-    /* Ocultar controles nativos del video */
     video::-webkit-media-controls,
     video::-webkit-media-controls-play-button {
         display: none !important;
