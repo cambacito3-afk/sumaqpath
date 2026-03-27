@@ -1,0 +1,430 @@
+:root {
+    :root {
+        --bg-1: #0D0D0D;
+        --bg-2: #1A1A1A;
+        --bg-3: #222222;
+        --accent: #C9A84C;
+        --soft: #F5F0E8;
+        --text: #F5F0E8;
+        --muted: rgba(245, 240, 232, 0.6);
+    }
+
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg-1));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── HEADER & NAV ── */
+header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(13, 13, 13, 092);
+    border-bottom: 1px solid rgba(261, 168, 76, 0.3);
+    z-index: 10;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav .brand {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    font-size: 4rem;
+    color: var(--soft);
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--soft);
+    background: rgba(240, 165, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+/* ── SECTION NAV ── */
+.section-nav {
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 32px;
+    background: #1A1A1A;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.section-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.section-nav a {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8A8A8A;
+    text-decoration: none;
+    padding: 0 14px 0 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #2a2a2a;
+    margin-right: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+    flex: 0 0 auto;
+}
+
+.section-nav a:hover {
+    color: #C9A84C
+}
+
+
+/* ── HERO ── */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero.mural {
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    width: 100%;
+    display: grid;
+    align-items: end;
+    color: var(--soft);
+}
+
+.hero.mural>div {
+    position: relative;
+    z-index: 1;
+    padding: 60px 24px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.hero.mural>div.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: clamp(2.4rem, 6vw, 3.2rem);
+    color: var(--soft);
+    line-height: 1.1;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    text-align: left;
+}
+
+.hero p {
+    max-width: 420px;
+    margin: 0 0 18px;
+    font-size: 1.05rem;
+    color: var(--muted);
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    text-align: left;
+
+}
+
+/* ── BUTTONS ── */
+.cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(240, 165, 0, 0.45);
+    text-decoration: none;
+    color: var(--soft);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border-color: rgba(240, 165, 0, 0.7);
+}
+
+/* ── MAIN SECTIONS ── */
+main {
+    flex: 1;
+}
+
+section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+}
+
+section h2 {
+    margin: 0 0 6px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: var(--soft);
+    letter-spacing: 0.4px;
+}
+
+section h2 em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.section-label {
+    font-size: 3rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+    text-align: right;
+}
+
+section p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    max-width: 720px;
+    line-height: 1.7;
+}
+
+section p.es {
+    font-style: italic;
+    color: rgba(233, 242, 245, 0.5);
+    font-size: 0.92rem;
+    margin-top: -10px;
+}
+
+/* ── CARDS ── */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    padding: 18px;
+    border-radius: 14px;
+    background: #eeeded;
+    border: 1px solid #fdfdfd;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: #C9A84C;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    color: var(--soft);
+}
+
+.card span {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--soft);
+}
+
+.card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ── DIVIDER ── */
+.divider {
+    max-width: 1100px;
+    margin: 10px auto;
+    border: none;
+    height: 1px;
+    border-top: linear-gradient(90deg, transparent, #C9A84C, transparent);
+}
+
+/* ── FOOTER ── */
+footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 26px 20px 40px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 760px) {
+    .hero.mural {
+        min-height: 100px;
+        height: auto;
+    }
+
+    .bg-video {
+        position: relative;
+        width: 180px;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+
+    nav {
+        padding: 8px 12px;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    nav .brand,
+    section h2,
+    .hero h1 {
+        font-family: 'Playfair Display, serif';
+
+    }
+
+    nav .links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2px;
+    }
+
+    nav .links a {
+        font-size: 0.7rem;
+        padding: 4px 6px;
+    }
+
+    video::-webkit-media-controls {
+        display: none !important;
+    }
+
+    video::-webkit-media-controls-play-button {
+        display: none !important;
+    }
+
+    .hero {
+        padding-top: 100px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .hero.mural .hero-text {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero.mural img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+    }
+
+
+    /* ...todo tu CSS actual... */
+
+
+    /* Imágenes de cards */
+    .card img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 12px;
+        display: block;
+    }
+
+    .card-grid {
+        display: flex;
+        gap: 16px;
+    }
+
+    .card {
+        flex: 1;
+        align-self: stretch;
+        height: 420;
+        overflow: hidden;
+    }
+
+    h1,
+    h2,
+    p {
+        text-align: center;
+    }
+
+    history-toggle {
+        margin-top: 20px;
+    }
+
+    .history-toggle summary {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .history-content {
+        max-height: 120px;
+        overflow-y: auto;
+        line-height: 1.6;
+        padding-right: 8px;
+    }
+}

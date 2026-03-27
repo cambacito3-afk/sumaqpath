@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumaqpath</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="brand">
+                <span style="font: weight 300px; color:#f0a500; font-family:Georgia, serif; letter-spacing:0.05em;">
+                    sumaqpath
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="section-nav">
+        <a href="cusco-historic.html" class="active">Cusco Historic</a>
+        <a href="transports.html">Transports</a>
+        <a href="adventure.html">Adventure Activities</a>
+        <a href="accommodation.html">Accommodation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero mural">
+            <video id="miVideo" autoplay muted playsinline loop preload="auto">
+                <source src="istockphoto-2167293862-640_adpp_is.mp4" type="video/mp4">
+            </video>
+
+            <div>
+                <h1>Travelling near the sky</h1>
+
+
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- MACHU PICCHU HISTORY -->
+        <section id="machu-picchu">
+            <p class="section-label"></p>
+
+            <h2>Machu Picchu — <em>The Lost City</em></h2>
+            <details class="history-toggle">
+                <summary>See History</summary>
+                <div class="history-content">
+
+                    <p>
+                        Built around 1450 during the reign of the Inca emperor Pachacuti, Machu Picchu sits at
+                        2,430 metres above sea level in the Eastern Cordillera of southern Peru, about 80 km
+                        northwest of Cusco. Its stones were cut with such precision that no mortar was needed —
+                        and during earthquakes, they shift and fall back into place, a remarkable feat of engineering
+                        on a site built directly over two fault lines.
+                    </p>
+
+                    <p>
+                        Abandoned roughly a century later during the Spanish conquest, the citadel remained largely
+                        unknown to the outside world until 1911, when historian Hiram Bingham brought it to
+                        international attention. Today it is a UNESCO World Heritage Site and one of the New Seven
+                        Wonders of the World, receiving over 1.5 million visitors annually.
+                    </p>
+                </div>
+            </details>
+
+
+            <div class="card-grid">
+                <article class="card">
+                    <span>Principal Destinations</span>
+                    <h3>Cusco</h3>
+                    <img src="Cuzco adventures 2.jpeg" alt="View of Cusco" style="width:100%; height:auto;">
+                    <ul>
+                        <li>Machu Picchu <em>ashlar</em> — blocks cut to fit perfectly.</li>
+                        <li>Over 200 structures covering 81,000 hectares of mountain terrain.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span>Featured Activities</span>
+                    <h3>Hiking near the sky</h3>
+                    <img src="Tom.jpeg" alt="Adventure activity in Peru" style="width:100%; height:auto;">
+                    <ul>
+                        <li>Yale historian led the expedition that mapped the site for the world.</li>
+
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <span>Today · Hoy</span>
+                    <h3>River Rafting</h3>
+                    <img src="IMG_1631.JPG" alt="Tourist destination in Peru" style="width:85%; height:34ch;">
+                    <ul>
+                        <li>Daily visitor numbers are capped to protect the site.</li>
+                        <li>Book your entry tickets at least 3 weeks in advance.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- BACKPACKER GUIDE -->
+        <section id="Destinations">
+            <p class="section-label">Destinations</p>
+            <h2>Around Cusco</h2>
+            <img src="pisac.webp" alt="Adventure activity in Peru" style="width:33%; height:auto;">
+            <img src="Ollantaytambo.webp" alt="Adventure activity in Peru" style="width:33%; height:auto;">
+            <img src="Urubamba.webp" alt="Adventure activity in Peru" style="width:33%; height:auto;">
+            <p>
+                Pisac, Ollantaytambo ,Urubamba
+
+            </p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- PERUVIAN CUISINE -->
+        <section id="peruvian-cuisine">
+            <p class="section-label">Cuisine</p>
+            <h2>Peruvian Cuisine</h2>
+            <img src="food1.webp" alt="Adventure activity in Peru" style="width:33%; height:24ch;">
+            <img src="Choclo con queso.webp" alt="Adventure activity in Peru" style="width:33%; height:24ch;">
+            <img src="Cuy.webp" alt="Adventure activity in Peru" style="width:33%; height:24ch;">
+
+
+
+
+            <p>
+                Chicharron, Choclo con queso and Cuy Meat
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- GALLERY -->
+        <section id="Getting Around">
+            <p class="section-label">Getting around</p>
+            <h2>Travel Way</h2>
+            <img src="tren-machupicchu-sm-media.jpg" alt="Adventure activity in Peru" style="width:33%; height:24ch;">
+            <img src="fly.webp" alt="Adventure activity in Peru" style="width:33%; height:24ch;">
+            <img src="bus.webp" alt="Adventure activity in Peru" style="width:33%; height:24ch;">
+
+            <p>train to Machu Picchu,flying and bus to nearby adventures.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        Ready to go lighter? Save the map offline, carry layers, and keep sunrise slots for the magic hours.<br>
+        <span style="font-style:italic; color:rgba(233,242,245,0.4);"></span>
+    </footer>
+
+    <script>
+        const heroDiv = document.querySelector('.hero.mural > div');
+
+        if (heroDiv) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            observer.observe(heroDiv);
+        }
+
+        const video = document.getElementById("miVideo");
+
+        if (video) {
+            video.muted = true;
+
+            const playVideo = () => {
+                video.play().catch(() => { });
+            };
+
+            playVideo();
+            video.addEventListener("canplay", playVideo);
+
+            document.addEventListener("visibilitychange", () => {
+                if (!document.hidden) playVideo();
+            });
+
+            document.addEventListener("touchstart", () => {
+                video.play().catch(() => { });
+            }, { once: true });
+        }
+    </script>
+</body>
+
+</html>
