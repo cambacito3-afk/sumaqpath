@@ -12,11 +12,7 @@
 <body>
     <header>
         <nav>
-            <div class="brand">
-                <span style="font-weight:300; color:#f0a500; font-family:Georgia, serif; letter-spacing:0.05em;">
-                    sumaqpath
-                </span>
-            </div>
+            <div class="brand">sumaqpath</div>
         </nav>
     </header>
 
@@ -43,9 +39,9 @@
 
     <hr class="divider">
 
-    <!-- MACHU PICCHU HISTORY -->
+    <!-- MACHU PICCHU -->
     <section id="machu-picchu">
-        <p class="section-label"></p>
+        <p class="section-label">Historic</p>
         <h2>Machu Picchu — <em>The Lost City</em></h2>
 
         <details class="history-toggle">
@@ -55,14 +51,13 @@
                     Built around 1450 during the reign of the Inca emperor Pachacuti, Machu Picchu sits at
                     2,430 metres above sea level in the Eastern Cordillera of southern Peru, about 80 km
                     northwest of Cusco. Its stones were cut with such precision that no mortar was needed —
-                    and during earthquakes, they shift and fall back into place, a remarkable feat of engineering
-                    on a site built directly over two fault lines.
+                    and during earthquakes, they shift and fall back into place.
                 </p>
                 <p>
                     Abandoned roughly a century later during the Spanish conquest, the citadel remained largely
                     unknown to the outside world until 1911, when historian Hiram Bingham brought it to
                     international attention. Today it is a UNESCO World Heritage Site and one of the New Seven
-                    Wonders of the World, receiving over 1.5 million visitors annually.
+                    Wonders of the World.
                 </p>
             </div>
         </details>
@@ -74,7 +69,7 @@
                 <img src="Cuzco adventures 2.jpeg" alt="View of Cusco">
                 <ul>
                     <li>Machu Picchu <em>ashlar</em> — blocks cut to fit perfectly.</li>
-                    <li>Over 200 structures covering 81,000 hectares of mountain terrain.</li>
+                    <li>Over 200 structures covering 81,000 hectares.</li>
                 </ul>
             </article>
 
@@ -83,17 +78,17 @@
                 <h3>Hiking near the sky</h3>
                 <img src="Tom.jpeg" alt="Adventure activity in Peru">
                 <ul>
-                    <li>Yale historian led the expedition that mapped the site for the world.</li>
+                    <li>Yale historian led the expedition that mapped the site.</li>
                 </ul>
             </article>
 
             <article class="card">
                 <span>Today · Hoy</span>
                 <h3>River Rafting</h3>
-                <img src="IMG_1631.JPG" alt="Tourist destination in Peru">
+                <img src="IMG_1631.JPG" alt="River rafting in Peru">
                 <ul>
                     <li>Daily visitor numbers are capped to protect the site.</li>
-                    <li>Book your entry tickets at least 3 weeks in advance.</li>
+                    <li>Book entry tickets at least 3 weeks in advance.</li>
                 </ul>
             </article>
         </div>
@@ -115,7 +110,7 @@
 
     <hr class="divider">
 
-    <!-- PERUVIAN CUISINE -->
+    <!-- CUISINE -->
     <section id="peruvian-cuisine">
         <p class="section-label">Cuisine</p>
         <h2>Peruvian Cuisine</h2>
@@ -144,23 +139,20 @@
 </main>
 
 <footer>
-    Ready to go lighter? Save the map offline, carry layers, and keep sunrise slots for the magic hours.<br>
-    <span style="font-style:italic; color:rgba(233,242,245,0.4);"></span>
+    Ready to go lighter? Save the map offline, carry layers, and keep sunrise slots for the magic hours.
 </footer>
 
 <script>
-    // Hero fade-in
     const heroDiv = document.querySelector('.hero.mural > div');
     if (heroDiv) {
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
         observer.observe(heroDiv);
     }
 
-    // Video autoplay con fallback para móvil
     const video = document.getElementById("miVideo");
     if (video) {
         video.muted = true;
